@@ -1,0 +1,68 @@
+// ConsoleApplication1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+
+#include <stdint.h>
+#include <stdio.h>
+#include "sodium.h"
+#define MESSAGE ((const unsigned char *) "HOLA MUNDO")
+#define MESSAGE_LEN 10
+#define CIPHERTEXT_LEN (crypto_secretbox_MACBYTES + MESSAGE_LEN)
+
+int main()
+{
+    if (sodium_init() < 0) {
+        /* panic! the library couldn't be initialized, it is not safe to use */
+        return -1;
+    }
+
+    unsigned char key[crypto_secretbox_KEYBYTES];
+    unsigned char nonce[crypto_secretbox_NONCEBYTES];
+    unsigned char ciphertext[CIPHERTEXT_LEN];
+
+    unsigned char buf[12];
+    printf("--------GENERADOR DE ALEATORIOS--------");
+    printf("\n");
+    printf("RANDOM: ");
+    randombytes_buf(buf, sizeof((buf)));
+    for (int i = 0; i < sizeof(buf); i++)
+        printf("%d ", (unsigned int)buf[i]);
+    printf("\n");
+    printf("\n");
+
+    printf("--------CIFRADO DEL MENSAJE---------------");
+    printf("\n");
+    crypto_secretbox_keygen(key);
+    printf("KEY: ");
+    for (int i = 0; i < sizeof(key); i++)
+        printf("%d ", (unsigned int)key[i]);
+    printf("\n");
+    printf("NONCE: ");
+    randombytes_buf(nonce, sizeof nonce);
+    for (int i = 0; i < sizeof(nonce); i++)
+        printf("%d ", (unsigned int)nonce[i]);
+    printf("\n");
+    printf("CIPHERTEXT: ");
+    crypto_secretbox_easy(ciphertext, MESSAGE, MESSAGE_LEN, nonce, key);
+    for (int i = 0; i < sizeof(ciphertext); i++)
+        printf("%d ", (unsigned int) ciphertext[i]);
+    printf("\n");
+
+    unsigned char decrypted[MESSAGE_LEN];
+    printf("DECRYPTED: ");
+    crypto_secretbox_open_easy(decrypted, ciphertext, CIPHERTEXT_LEN, nonce, key);
+    for (int i = 0; i < sizeof(decrypted); i++)
+         printf("%c", decrypted[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
+// Depurar programa: F5 o menú Depurar > Iniciar depuración
+
+// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
+//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
+//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
+//   4. Use la ventana Lista de errores para ver los errores
+//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
+//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
