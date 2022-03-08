@@ -1,0 +1,606 @@
+Delivered-To: jplopezz1512@gmail.com
+Received: by 2002:a05:7000:b30e:0:0:0:0 with SMTP id ay14csp2885736mab;
+        Tue, 8 Mar 2022 12:05:41 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyNYKbVaLyi/xferTy56ywnXt88OWNehxGcZZItHFPDTr/stmYNOlYvSion6u7yi72XVnHo
+X-Received: by 2002:a17:906:74c3:b0:6da:be6d:d64b with SMTP id z3-20020a17090674c300b006dabe6dd64bmr15122778ejl.695.1646769941262;
+        Tue, 08 Mar 2022 12:05:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1646769941; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=RQUE/E7BQJWSJBCNk3DZX2deP1GeM9HmN5DIagsqT9MbbXQrhYN76Olw+fId61/DHJ
+         3H0nLuyHq1di+n3SWZGfPuHSHoGKy8BIYv1kH8Fg0vE9jxSvoBQLqpSIPXIi2d0bzzm9
+         XKCRyAPtAIK0OaX/oLS3yP7OKEAJdEZWCH/91SMeTLqgPcSLKQgFJ5hQhag9CK+mhgwz
+         BDZ6dJqo6hyP5j1JIyoVU4v9Fa/T8vNG2qEaIL+fL0J7hl+7Qd9bCc2F+JGjK9IkAoKi
+         ZPQ3lVy4lSQ9886qYEqBJVvmWYUAFwRLj2yo+g2SuGil/s3Zs9OX6JwMUwAa9g7FlaXW
+         bWAg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:suggested_attachment_session_id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=HteLkhtCHdMFhryAzcgv9H9zgNuqexhCIThhG5Iulk8=;
+        b=ly+A1SbNldgUICw9Ir072kwYGO5li7k/MsQT4O/zvRMR+X50XFueWE5awwDm2e94Yk
+         I2sXk6S4SFLB4b0dx0TIOLZi8mEj123Y78sFP3wMw1jcodU2dS5pnXOA+poUxlKmPyo5
+         ZT/R9lqY1jCQczERQlhuIz5MXnOvwaygI4kAMfXD28NoXyt/z6/j0gOZKclgSmfe+KOM
+         6lIfeAYaJ8cpX8izXuwGYklwt2DBG+O48PGsJoz3QuOR8fVw7456kZBRNz8bPOYPMPEX
+         jK1/fHqoz1VOO0QN0UqNvHadPBT6hOhgw8/MAYuHNl74u+Q5bAWL8Kb1S2/sgEd9rXWK
+         lrxA==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b="Fp/by7LE";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:7eaa::823 as permitted sender) smtp.mailfrom=jplopezz441@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+Return-Path: <jplopezz441@outlook.com>
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (mail-dm6nam11olkn20823.outbound.protection.outlook.com. [2a01:111:f400:7eaa::823])
+        by mx.google.com with ESMTPS id hq9-20020a1709073f0900b006d0a32c03f8si14534902ejc.23.2022.03.08.12.05.40
+        for <jplopezz1512@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 08 Mar 2022 12:05:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:7eaa::823 as permitted sender) client-ip=2a01:111:f400:7eaa::823;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b="Fp/by7LE";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:7eaa::823 as permitted sender) smtp.mailfrom=jplopezz441@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none; b=Nt8t4xNIzHYbEtchblc50XS2mSWtRdk6f6UrTlQll7GypaN9kbiXvUFOdUGQsojlvV7KSrruFyLKF7vNa9AsF7BqEI4VMiPllCZruNnsUNiUnZueSmY65TvI5lqulfWt/stPk+dZyqqf5pOCTZWfOyHm8sB1Z5iUpaKjLEMgEfs/3nPB+hV7qsw0UxklwJ1VXsHHzFv9tLdJnbsCF0Cm3O2uHKYLJMOwA+Pw1dnElW7ANzOB8IssdI6tmPH5SkwhrSR3BvaYrEHuZAzUtV5+XZ+0lJXEsl5gKN5x6kKbfcRMOWu0/jfUbP2bL0Z6r8qXZwp/veEaz6tBaPWMyBBs4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1; bh=HteLkhtCHdMFhryAzcgv9H9zgNuqexhCIThhG5Iulk8=; b=PM5PGWZNd3yf84BYF79lsE5jJ/J7nhHE5wIYz/uuT30bb6NgP0MtCsLEa49dQbkeRBagegb/+4diSKXzHLJCPumrNuA3ojOESp/PmjeruTX1pBBhQvuA45bs7db2XV3W9fp/Yz+wzsoyK3cX5n1SaYVe5HGrB9UcV7IVNQpOyM78ZuEU0Z0nWb5ZwKGH8Fggbu3UklYY433xP9UoqpG0wSiuXYjFa3St+/HK3vY8mnZklU8u5atTFyEKhp/ykRCIFhZ9mDHX7tMEQCOw1vUvKx7yfxjgx85C9mFty3DyfcPpZahzOhZ2vuODoNvk6FKtTZxAosLt4qeEWP56Alo4oQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none; dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com; s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck; bh=HteLkhtCHdMFhryAzcgv9H9zgNuqexhCIThhG5Iulk8=; b=Fp/by7LETxzvNql2hbEbBWKE9Eh0Fzx7hdPdD6fsnjjK6HBxeADw2+eYBTecXbyv+THW60Sm/SR4TLpga+Fo8SuFOHfWGnpVOIno7w42G8Wu9PsmADvye79uectgtxdXHSMqKgpi/6dpIn6mDMn6sywCKnEHP+reJIxJW6huLggCqshg8q443mb1KwsnB7jH4LY2wGTe0k5AEWHMGNKlcd7MbuU6go2FEthTMPW9yhIPGBejzq6Vu+z6MBPshHThhTVQeQ3zyvP7cdRgGzvcqwsmubyVCQ7a0oA7KSeBfAG90PHgRAB+pW+3As3jfmOLLu7999FchsrybnU2okNGvg==
+Received: from SJ0PR07MB7759.namprd07.prod.outlook.com (2603:10b6:a03:284::11) by SN4PR07MB9232.namprd07.prod.outlook.com (2603:10b6:806:1ef::21) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5038.14; Tue, 8 Mar 2022 20:05:37 +0000
+Received: from SJ0PR07MB7759.namprd07.prod.outlook.com ([fe80::2c58:81f:8614:9bc9]) by SJ0PR07MB7759.namprd07.prod.outlook.com ([fe80::2c58:81f:8614:9bc9%6]) with mapi id 15.20.5038.027; Tue, 8 Mar 2022 20:05:37 +0000
+From: "JUAN PABLO LOPEZ ZUÑIGA" <jplopezz441@outlook.com>
+To: "jplopezz1512@gmail.com" <jplopezz1512@gmail.com>
+Subject: RV: Dessin.co posted in Dessin.co
+  Art House
+Thread-Topic: Dessin.co posted in Dessin.co
+  Art House
+Thread-Index: AQHYImnxzNiOo2E810OW74B9o5LqDay2CuYR
+Date: Tue, 8 Mar 2022 20:05:37 +0000
+Message-ID: <SJ0PR07MB7759AD021254F877E54E32C3E1099@SJ0PR07MB7759.namprd07.prod.outlook.com>
+References: <5094119070640025-225580040827310@groups.facebook.com> <2e9244a8-8e5d-11ec-9764-ed319429d5a4@facebookmail.com>
+In-Reply-To: <2e9244a8-8e5d-11ec-9764-ed319429d5a4@facebookmail.com>
+Accept-Language: es-MX, en-US
+Content-Language: es-MX
+X-Hashtags: #Social
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+suggested_attachment_session_id: f09fdc84-81d6-8b6c-975d-e93aff2a4ccf
+x-tmn: [+bNZjIt4KlNF5VX+bwyKnVodrlVHuwRM]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 68bdc789-66be-418d-478f-08da013f0357
+x-ms-traffictypediagnostic: SN4PR07MB9232:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 0RwRKORxs7BA04qPh3NqnKERoNfR0PM/vgRpVJ7SUzaNpeQy4tM0DcvO3O7xeuzfmEKgPNxo6J8UmxHyR6ZWs4/c0FtySrH6kd/CScQZUVt/Y6NWUglxR2B1ODjhfxXkjLBuLhvC4vYW1oldQ/aJlLzpKnnLn0BduWavfv+qvxcok63shic6+3PvoXEVFAGIc9MJoWtyK1qIfQy1wStsZP+Y6tDjpYMEJCracTFoNF0HsVrMB24Y6CKOpqJ+V7nBLRvFyZ3N2sNLFFxeEAebYoL/1MR+5hw3QHaZKBpIwjYgtqzWQmRGtKVYtDrAj9phoEKlrCmWChAqv4ehYZGFIboUP99d2g5+cYRQDloMJsdm993MptAsfLUf12oyLdSgz6ooyaMTZKU9ZN6Ltv+ACJAmnH++Hz9pAhNmIyUo3cWVKVQPXuI9q60OOf7ZdrP+k+pFrcnhTNzXzOAxWwwzkuUE+qjvMiibY21HJda0GH2pqlp0hmRRHqxbek5ljKfpJwM07NW2+YaPKCdLBbg/JZYcnSqqHyoE5JdcuF0YcH3aNGS0XrOcNphEURl/wwNp40eZUfP4o5ggJKzKveMExPsFsKXY4PWaR/PLoiYRAp3hmWNtIjqGfu7yKfJOjNQevuqBwTYi69BOArISjxxQO3sCCDMYtPuMpRP1JAWDnzc=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: LdHppsgkITKpmHznUPzUg/un6WARR6G3jxK6rTc9OzCSBDanS/y/eUqD2hdgeZiHQSLu/tSqgt2dATNSbtcOtEM+tPFseZLQHbhVF+hYNxS66bIhUOB7ZWnRp7b+wH+hcgruMZMNTLMpHUbVt9DDRmh+jIq96yOT2QmtP6UCdCo2cuFQnlRe5iRnfwT1dm4okCcmSrIpf0oU8ehRnalUQHUmwKpiM7PWu3Wf1gUzG2CvPYHNPlrI8md6sFB5TPszoontp8PHTECFg8jVTkb8hiydPkFlrjzU4RZjxmCjDgjQWvqbev59GeO7RN8iiIojkAi8rLxYNj4uwiWS5wAddv5sAJ3ImPllcGRgTLmr+gMUVAy1yTTyEMQEE/27QWh1rk9ucYdvTTH+Dzjp/hEYIWk4MhlUSe5hhXOa7AkVjfFVaxXc4QgDzFPIkeCwi2KmVbZ2QKFa2CHiYqmsgfdeZUzOub4sUPlSAL/S+D1so3sG/A8lPrX/i0++lWxYsJmpl0d955kaBlylMr8pRqAddhoxLa70DL3f11uQd7LMpQw10jAz841JfQeAycLJDeMypzOmzxfXuoQye5Xgn0hkkrCrVIvzzztNwao5N7TTeMjWOmE0V8Aa9lzENtbTPLDm03SFRuTKHe9/E1QoBu3a7hPJ1+PV9+nNA1IZsGt2S2RecybLgB895p1Q2wgF+FFzBNZ2bwdgoJK4K1JL8hiVqTsbcyhC+lGdLkjhbkQvaWZsaWEUGWCwXxEh6Yqkp3fXLq+Vs5IgujQQF/Y38tUHJUYBA/LmSW41WwGXux0tGkj4wu95Jb5tljazs8P9mBul49VG0axHjjXcoFC/vNva/IoJeAB9Ywr2l9wLDXdGlB62u6uotx85G04wryqeLXNzuMRc32yj1tp5aBjgtGYHCjxIu+NDm/s7cphDUm2gfw4tdGtAuMK2u4iYtA0nUd2bcI+QeMxrHyln7PpEvkkqig==
+Content-Type: multipart/alternative; boundary="_000_SJ0PR07MB7759AD021254F877E54E32C3E1099SJ0PR07MB7759namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR07MB7759.namprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68bdc789-66be-418d-478f-08da013f0357
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Mar 2022 20:05:37.6330 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR07MB9232
+
+--_000_SJ0PR07MB7759AD021254F877E54E32C3E1099SJ0PR07MB7759namp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+________________________________
+De: Facebook <groupupdates@facebookmail.com>
+Enviado: martes, 15 de febrero de 2022 06:45 a. m.
+Para: Dessin.co Art House <DESSIN.CO@groups.facebook.com>
+Asunto: Dessin.co posted in Dessin.co Art House
+
+Juan, see what they posted.
+
+[Facebook]<https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F50=
+94119070640025%2F&aref=3D1644857134078800&medium=3Demail&mid=3D5d7fcdb98d87=
+eG5af386988582G5d7fd252edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&n_=
+m=3Djplopezz441%40outlook.com&lloc=3Dheader&rms=3Dv2>
+
+
+[https://scontent.xx.fbcdn.net/v/t39.30808-1/262305498_4711906488855978_532=
+9922164963412534_n.jpg?stp=3Ddst-jpg_p100x100&_nc_cat=3D107&ccb=3D1-5&_nc_s=
+id=3Ddbb9e7&_nc_ohc=3DSBrb0ofz4xoAX9Ig2C4&_nc_ad=3Dz-m&_nc_cid=3D0&_nc_ht=
+=3Dscontent.xx&oh=3D00_AT-RvRwTSU5P6g8Jr6xhMK80H_6d0NFqA97O6ea2uyMcFg&oe=3D=
+62108E64]<https://www.facebook.com/nd/?D5Taller%2F&aref=3D1644857134078800&=
+medium=3Demail&mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&bcode=3D2.=
+1644929140.AbzQ8JQtD6eaSln4hbY&n_m=3Djplopezz441%40outlook.com&lloc=3Dautho=
+r_pic&rms=3Dv2>
+Dessin.co<https://www.facebook.com/nd/?D5Taller%2F&lloc=3Dprofile_link&aref=
+=3D1644857134078800&medium=3Demail&mid=3D5d7fcdb98d87eG5af386988582G5d7fd25=
+2edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&n_m=3Djplopezz441%40outl=
+ook.com> posted in Dessin.co Art House<https://www.facebook.com/nd/?groups%=
+2FDESSIN.CO%2F&lloc=3Dprofile_link&aref=3D1644857134078800&medium=3Demail&m=
+id=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&bcode=3D2.1644929140.AbzQ8=
+JQtD6eaSln4hbY&n_m=3Djplopezz441%40outlook.com>
+February 14 at 10:45<https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fperm=
+alink%2F5094119070640025%2F&aref=3D1644857134078800&medium=3Demail&mid=3D5d=
+7fcdb98d87eG5af386988582G5d7fd252edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6ea=
+Sln4hbY&n_m=3Djplopezz441%40outlook.com&lloc=3Dpost_timestamp&rms=3Dv2>
+
+Estamos en remodelaci=F3n de Fachada. Seguimos con ac... See More<https://w=
+ww.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F5094119070640025%2F&ar=
+ef=3D1644857134078800&medium=3Demail&mid=3D5d7fcdb98d87eG5af386988582G5d7fd=
+252edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&n_m=3Djplopezz441%40ou=
+tlook.com&lloc=3Dsee_more&rms=3Dv2>
+
+[https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/MHzsfl2dotT.png][https://stat=
+ic.xx.fbcdn.net/rsrc.php/v3/y0/r/w3qjgKNj9fB.png][https://static.xx.fbcdn.n=
+et/rsrc.php/v3/yc/r/D-8Grj5IQYK.png]      8
+
+<https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F509411907064=
+0025%2F&aref=3D1644857134078800&medium=3Demail&mid=3D5d7fcdb98d87eG5af38698=
+8582G5d7fd252edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&n_m=3Djplope=
+zz441%40outlook.com&lloc=3Dview_on_facebook_btn&rms=3Dv2>
+<https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F509411907064=
+0025%2F&aref=3D1644857134078800&medium=3Demail&mid=3D5d7fcdb98d87eG5af38698=
+8582G5d7fd252edb50G96&bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&n_m=3Djplope=
+zz441%40outlook.com&lloc=3Dview_on_facebook_btn&rms=3Dv2>
+View on Facebook
+
+
+Was this email:Useful<https://www.facebook.com/email_notification_feedback/=
+?is_useful=3D1&next_href=3Dhttps%3A%2F%2Fwww.facebook.com%2Fgroups%2FDESSIN=
+.CO%2Fpermalink%2F5094119070640025%2F&ndid=3D5d7fcdb98d87eG5af386988582G5d7=
+fd252edb50G96> | Not Useful<https://www.facebook.com/email_notification_fee=
+dback/?is_useful=3D0&next_href=3Dhttps%3A%2F%2Fwww.facebook.com%2Fnd%2F%3Fh=
+ome.php%26aref%3D1644857134078800%26medium%3Demail%26mid%3D5d7fcdb98d87eG5a=
+f386988582G5d7fd252edb50G96%26bcode%3D2.1644929140.AbzQ8JQtD6eaSln4hbY%26n_=
+m%3Djplopezz441%2540outlook.com%26lloc%3D2nd_cta%26rms%3Dv2&ndid=3D5d7fcdb9=
+8d87eG5af386988582G5d7fd252edb50G96>
+
+
+This message was sent to jplopezz441@outlook.com<mailto:jplopezz441@outlook=
+.com>. If you don't want to receive these emails from Meta in the future, p=
+lease unsubscribe<https://www.facebook.com/o.php?k=3DAS1Yei0YYRZ5aAtedVw&u=
+=3D100001981695362&mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&ee=3DA=
+Y1Fn-dunTe0-qHxLx3cb87m18xG-FzoxVf3dzpTNIgWBAxuMwPnJst3pNUkxUCyzRKC8mF2Un6L=
+K3syby0Yagk>.
+Meta Platforms, Inc., Attention: Community Support, 1 Facebook Way, Menlo P=
+ark, CA 94025
+To help keep your account secure, please don't forward this email. Learn mo=
+re<https://www.facebook.com/email_forward_notice/?mid=3D5d7fcdb98d87eG5af38=
+6988582G5d7fd252edb50G96>
+
+[https://www.facebook.com/email_open_log_pic.php?mid=3D5d7fcdb98d87eG5af386=
+988582G5d7fd252edb50G96]
+
+--_000_SJ0PR07MB7759AD021254F877E54E32C3E1099SJ0PR07MB7759namp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>De:</b> Facebook &lt;groupupdat=
+es@facebookmail.com&gt;<br>
+<b>Enviado:</b> martes, 15 de febrero de 2022 06:45 a. m.<br>
+<b>Para:</b> Dessin.co Art House &lt;DESSIN.CO@groups.facebook.com&gt;<br>
+<b>Asunto:</b> Dessin.co posted in Dessin.co Art House</font>
+<div>&nbsp;</div>
+</div>
+<style>
+<!--
+.x_d_mb_show
+=09{display:none}
+.x_d_mb_flex
+=09{display:flex}
+.x_mb_text h1, .x_mb_text h2, .x_mb_text h3, .x_mb_text h4, .x_mb_text h5, =
+.x_mb_text h6
+=09{line-height:normal}
+.x_mb_work_text h1
+=09{font-size:18px;
+=09line-height:normal;
+=09margin-top:4px}
+.x_mb_work_text h2, .x_mb_work_text h3
+=09{font-size:16px;
+=09line-height:normal;
+=09margin-top:4px}
+.x_mb_work_text h4, .x_mb_work_text h5, .x_mb_work_text h6
+=09{font-size:14px;
+=09line-height:normal}
+.x_mb_work_text a
+=09{color:#1270e9}
+.x_mb_work_text p
+=09{margin-top:4px}
+-->
+</style>
+<div>
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td width=3D"100%" align=3D"center" style=3D"">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" st=
+yle=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td width=3D"1280" align=3D"center" style=3D"">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" id=
+=3D"x_email_table" style=3D"border-collapse:collapse; max-width:640px; marg=
+in:0 auto">
+<tbody>
+<tr>
+<td id=3D"x_email_content" style=3D"font-family:Helvetica Neue,Helvetica,Lu=
+cida Grande,tahoma,verdana,arial,sans-serif; background:#ffffff">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td height=3D"1" colspan=3D"3" style=3D"line-height:1px"><span style=3D"col=
+or:#FFFFFF; font-size:1px; opacity:0">Juan, see what they posted.</span></t=
+d>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:15px"></t=
+d>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:15px">&nbsp;</td>
+</tr>
+<tr>
+<td width=3D"32" align=3D"left" valign=3D"middle" style=3D"height:32px; lin=
+e-height:0px">
+<a href=3D"https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F50=
+94119070640025%2F&amp;aref=3D1644857134078800&amp;medium=3Demail&amp;mid=3D=
+5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bcode=3D2.1644929140.AbzQ8J=
+QtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com&amp;lloc=3Dheader&amp;rms=
+=3Dv2" style=3D"color:#3b5998; text-decoration:none"><img width=3D"118" hei=
+ght=3D"24" alt=3D"Facebook" style=3D"border:0; font-size:19px; font-family:=
+Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif; col=
+or:#1877F2" src=3D"https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/7s5lklTGUda=
+.png"></a></td>
+</tr>
+<tr style=3D"border-bottom:solid 1px #E4E6EB">
+<td style=3D"line-height:0; font-size:0; padding-top:15px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:25px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D""><span class=3D"x_mb_text" style=3D"font-family:Helvetica Neu=
+e,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; =
+line-height:21px; color:#141823"></span></td>
+</tr>
+<tr>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif; background:#FFFFFF; border:solid 1px #E4E6EB; border-radius:6px=
+; padding:15px; display:block">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td width=3D"54" valign=3D"top" style=3D""><a href=3D"https://www.facebook.=
+com/nd/?D5Taller%2F&amp;aref=3D1644857134078800&amp;medium=3Demail&amp;mid=
+=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bcode=3D2.1644929140.Abz=
+Q8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com&amp;lloc=3Dauthor_pic&=
+amp;rms=3Dv2" style=3D"color:#3b5998; text-decoration:none"><img width=3D"5=
+4" height=3D"54" style=3D"border:0; background-color:#ebe9e7; border-radius=
+:50px; display:block" src=3D"https://scontent.xx.fbcdn.net/v/t39.30808-1/26=
+2305498_4711906488855978_5329922164963412534_n.jpg?stp=3Ddst-jpg_p100x100&a=
+mp;_nc_cat=3D107&amp;ccb=3D1-5&amp;_nc_sid=3Ddbb9e7&amp;_nc_ohc=3DSBrb0ofz4=
+xoAX9Ig2C4&amp;_nc_ad=3Dz-m&amp;_nc_cid=3D0&amp;_nc_ht=3Dscontent.xx&amp;oh=
+=3D00_AT-RvRwTSU5P6g8Jr6xhMK80H_6d0NFqA97O6ea2uyMcFg&amp;oe=3D62108E64"></a=
+></td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:12px"></t=
+d>
+<td width=3D"100%" valign=3D"middle" style=3D"">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse">
+<tbody>
+<tr>
+<td style=3D""><span class=3D"x_mb_text" style=3D"color:#050505; font-size:=
+16px; line-height:20px; font-weight:400"><a href=3D"https://www.facebook.co=
+m/nd/?D5Taller%2F&amp;lloc=3Dprofile_link&amp;aref=3D1644857134078800&amp;m=
+edium=3Demail&amp;mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bco=
+de=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com" =
+style=3D"color:inherit; text-decoration:none; font-weight:bold">Dessin.co</=
+a>
+ posted in <a href=3D"https://www.facebook.com/nd/?groups%2FDESSIN.CO%2F&am=
+p;lloc=3Dprofile_link&amp;aref=3D1644857134078800&amp;medium=3Demail&amp;mi=
+d=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bcode=3D2.1644929140.Ab=
+zQ8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com" style=3D"color:inher=
+it; text-decoration:none; font-weight:bold">
+Dessin.co Art House</a></span></td>
+</tr>
+<tr>
+<td style=3D"font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verd=
+ana,arial,sans-serif; font-size:14px; line-height:19px; color:#898f9c">
+<span class=3D"x_mb_text" style=3D"font-size:14px; line-height:18px; color:=
+#65676B; font-weight:400"><a href=3D"https://www.facebook.com/nd/?groups%2F=
+DESSIN.CO%2Fpermalink%2F5094119070640025%2F&amp;aref=3D1644857134078800&amp=
+;medium=3Demail&amp;mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;b=
+code=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com=
+&amp;lloc=3Dpost_timestamp&amp;rms=3Dv2" style=3D"color:#65676B; text-decor=
+ation:none">February
+ 14 at 10:45</a></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:8px">&nbsp;</td>
+</tr>
+<tr>
+<td colspan=3D"3" style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse; width:100%">
+<tbody>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif; padding-bottom:4px">
+<span class=3D"x_mb_text" style=3D"font-size:14px; line-height:18px; font-w=
+eight:400; color:#050505">Estamos en remodelaci=F3n de Fachada. Seguimos co=
+n ac...&nbsp;<a href=3D"https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fp=
+ermalink%2F5094119070640025%2F&amp;aref=3D1644857134078800&amp;medium=3Dema=
+il&amp;mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bcode=3D2.1644=
+929140.AbzQ8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com&amp;lloc=3Ds=
+ee_more&amp;rms=3Dv2" style=3D"color:#1B74E4; text-decoration:none">See
+ More</a></span></td>
+</tr>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif; padding-top:4px">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse">
+<tbody>
+<tr style=3D"">
+<td colspan=3D"2" style=3D"line-height:0; font-size:0; padding-top:7px">&nb=
+sp;</td>
+</tr>
+<tr>
+<td style=3D"float:left; font-size:0; line-height:0"><img width=3D"16px" st=
+yle=3D"border:0" src=3D"https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/MHzsfl=
+2dotT.png"><img width=3D"16px" style=3D"border:0" src=3D"https://static.xx.=
+fbcdn.net/rsrc.php/v3/y0/r/w3qjgKNj9fB.png"><img width=3D"16px" style=3D"bo=
+rder:0" src=3D"https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/D-8Grj5IQYK.png=
+"></td>
+<td style=3D"padding-left:4px; line-height:0; display:block; overflow:hidde=
+n; max-height:20px; white-space:nowrap; text-overflow:ellipsis">
+<span class=3D"x_mb_text" style=3D"font-size:14px; line-height:18px; color:=
+#65676B; font-weight:400; line-height:16px">8</span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D""></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:20px">&nbsp;</td>
+</tr>
+<tr>
+<td align=3D"middle" style=3D""><a href=3D"https://www.facebook.com/nd/?gro=
+ups%2FDESSIN.CO%2Fpermalink%2F5094119070640025%2F&amp;aref=3D16448571340788=
+00&amp;medium=3Demail&amp;mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96=
+&amp;bcode=3D2.1644929140.AbzQ8JQtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlo=
+ok.com&amp;lloc=3Dview_on_facebook_btn&amp;rms=3Dv2" style=3D"color:#3b5998=
+; text-decoration:none">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"border-collapse:collapse; border-radius:6px; text-align:center=
+; display:block; border:none; background:#1877F2; padding:6px 20px 10px 20p=
+x">
+<a href=3D"https://www.facebook.com/nd/?groups%2FDESSIN.CO%2Fpermalink%2F50=
+94119070640025%2F&amp;aref=3D1644857134078800&amp;medium=3Demail&amp;mid=3D=
+5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;bcode=3D2.1644929140.AbzQ8J=
+QtD6eaSln4hbY&amp;n_m=3Djplopezz441%40outlook.com&amp;lloc=3Dview_on_facebo=
+ok_btn&amp;rms=3Dv2" style=3D"color:#3b5998; text-decoration:none; display:=
+block">
+<center><font size=3D"3"><span style=3D"font-family:Helvetica Neue,Helvetic=
+a,Lucida Grande,tahoma,verdana,arial,sans-serif; white-space:nowrap; font-w=
+eight:bold; vertical-align:middle; color:#FFFFFF; font-weight:500; font-siz=
+e:17px">View&nbsp;on&nbsp;Facebook</span></font></center>
+</a></td>
+</tr>
+</tbody>
+</table>
+</a></td>
+</tr>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:8px">&nbsp;</td>
+</tr>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:40px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"left" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"font-size:14px; color:#65676B"><span style=3D"padding-right:12=
+px; font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial=
+,sans-serif">Was this email:</span><span style=3D"color:#141823; font-size:=
+14px; font-weight:normal; line-height:24px; font-family:Helvetica Neue,Helv=
+etica,Lucida Grande,tahoma,verdana,arial,sans-serif"><a href=3D"https://www=
+.facebook.com/email_notification_feedback/?is_useful=3D1&amp;next_href=3Dht=
+tps%3A%2F%2Fwww.facebook.com%2Fgroups%2FDESSIN.CO%2Fpermalink%2F50941190706=
+40025%2F&amp;ndid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96" style=3D"c=
+olor:#1B74E4; text-decoration:none">Useful</a></span><span style=3D"padding=
+:0 12px; color:#C9CCD1; font-family:Helvetica Neue,Helvetica,Lucida Grande,=
+tahoma,verdana,arial,sans-serif">
+ | </span><span style=3D"color:#141823; font-size:14px; font-weight:normal;=
+ line-height:24px; font-family:Helvetica Neue,Helvetica,Lucida Grande,tahom=
+a,verdana,arial,sans-serif"><a href=3D"https://www.facebook.com/email_notif=
+ication_feedback/?is_useful=3D0&amp;next_href=3Dhttps%3A%2F%2Fwww.facebook.=
+com%2Fnd%2F%3Fhome.php%26aref%3D1644857134078800%26medium%3Demail%26mid%3D5=
+d7fcdb98d87eG5af386988582G5d7fd252edb50G96%26bcode%3D2.1644929140.AbzQ8JQtD=
+6eaSln4hbY%26n_m%3Djplopezz441%2540outlook.com%26lloc%3D2nd_cta%26rms%3Dv2&=
+amp;ndid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96" style=3D"color:#1B7=
+4E4; text-decoration:none">Not
+ Useful</a></span></td>
+</tr>
+<tr style=3D"">
+<td style=3D"line-height:0; font-size:0; padding-top:15px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"left" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"border-top:solid 1px #E4E6EB">
+<td style=3D"line-height:0; font-size:0; padding-top:15px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D"font-size:11px; color:#8A8D91; line-height:16px; font-weight:4=
+00">This message was sent to
+<a href=3D"mailto:jplopezz441@outlook.com" style=3D"color:#1B74E4; text-dec=
+oration:none">
+jplopezz441@outlook.com</a>. If you don't want to receive these emails from=
+ Meta in the future, please
+<a href=3D"https://www.facebook.com/o.php?k=3DAS1Yei0YYRZ5aAtedVw&amp;u=3D1=
+00001981695362&amp;mid=3D5d7fcdb98d87eG5af386988582G5d7fd252edb50G96&amp;ee=
+=3DAY1Fn-dunTe0-qHxLx3cb87m18xG-FzoxVf3dzpTNIgWBAxuMwPnJst3pNUkxUCyzRKC8mF2=
+Un6LK3syby0Yagk" style=3D"color:#1B74E4; text-decoration:none">
+unsubscribe</a>.<br>
+Meta Platforms, Inc., Attention: Community Support, 1 Facebook Way, Menlo P=
+ark, CA 94025</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"font-size:11px; color:#8A8D91; line-height:16px; font-weight:4=
+00"><span class=3D"x_mb_text" style=3D"font-family:Helvetica Neue,Helvetica=
+,Lucida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; line-height=
+:21px; color:#141823; font-size:11px; color:#8A8D91; line-height:16px; font=
+-weight:400">To
+ help keep your account secure, please don't forward this email. <a href=3D=
+"https://www.facebook.com/email_forward_notice/?mid=3D5d7fcdb98d87eG5af3869=
+88582G5d7fd252edb50G96" style=3D"color:#1B74E4; text-decoration:none">
+Learn more</a></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"0" style=3D"font-size:0; line-height:0; padding-left:0px"></td=
+>
+</tr>
+<tr style=3D"">
+<td colspan=3D"3" style=3D"line-height:0; font-size:0; padding-top:20px">&n=
+bsp;</td>
+</tr>
+</tbody>
+</table>
+<span style=3D""><img style=3D"border:0; width:1px; height:1px" src=3D"http=
+s://www.facebook.com/email_open_log_pic.php?mid=3D5d7fcdb98d87eG5af38698858=
+2G5d7fd252edb50G96"></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
+
+--_000_SJ0PR07MB7759AD021254F877E54E32C3E1099SJ0PR07MB7759namp_--
