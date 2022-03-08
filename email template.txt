@@ -1,0 +1,537 @@
+Delivered-To: jplopezz1512@gmail.com
+Received: by 2002:a05:7000:b30e:0:0:0:0 with SMTP id ay14csp2767608mab;
+        Tue, 8 Mar 2022 09:32:16 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw5XrXpJCuf7vOqSH8+QF+B5lU/hOkJqgwLl83XeTReDHAsUff9CLGt90FB/6kFtSLO8SEP
+X-Received: by 2002:a17:906:a213:b0:6b5:b0f9:7567 with SMTP id r19-20020a170906a21300b006b5b0f97567mr14514106ejy.129.1646760736106;
+        Tue, 08 Mar 2022 09:32:16 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1646760736; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=HzuPMrQ8dz50JGzWnTlH83cK+8DMQliUZaiNebKq/Oy9yZTeae/nFqK/35va86fMqC
+         CDpY6i86znQ5etvL1m966goeDJFezMKesBhnYa1DOgHLx9vVlv657NiQT/XZYlk+GXY/
+         dZ0AoXFIWZgrFR7hc6XXUKs59G3+qb23J3ULozdMCuHEm3KiVmNDHnZd/GuXxFaApj93
+         62Dg82BiRMMPZEagBFyhSx6E40jbnRF2EmLxVUNw5x22U40hlf1OYsu7oSEUaxMoW7O8
+         38lGsJ+qU3Z/sTIuk9JxOgzTrcBoFPQQr9M+QVbWg3rZyLuNCFjpM8k8zCxJ2bjRSS/F
+         I5Mg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:suggested_attachment_session_id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=tFoPLuw9g+8sEvK+WEr9nqBUyI17Eaj2A2qACeEeAmE=;
+        b=Ylw+W8ipVlY92Dgecj35oqP7r1i0iNhrJL1zKEgittMCKqC2TCFLuPPxuRJGvWW2oP
+         JODyaZZBn28qrEAfxr160TVJ8wHwtyEd2ajLfgTR9fOmcsRV8ZahbbPqsdEZtV48R8vx
+         3mA3YTsU3DbuBUfrDu+e+jvXivmkef/UNILXa5iXP72UeGkFSWwn9Uram7rPvJ8emDEC
+         SjWrUjigbsjZMVhM9EUiuJlG/lifpNQIaN3pWHk6Re9JPjfhv7UMS9kMep+KYv9gsxwA
+         /TxXAUiCtzG8+yiyMg2m1eD9YxvduazNTbCLV9pDW/RS53ld94pN3pzrxq3kLHfxmWTL
+         TaSA==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=uRuAAqu1;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:fe5b::815 as permitted sender) smtp.mailfrom=jplopezz441@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+Return-Path: <jplopezz441@outlook.com>
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (mail-bn8nam12olkn20815.outbound.protection.outlook.com. [2a01:111:f400:fe5b::815])
+        by mx.google.com with ESMTPS id x20-20020a1709060a5400b006d03adbd0b3si9919047ejf.424.2022.03.08.09.32.15
+        for <jplopezz1512@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 08 Mar 2022 09:32:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:fe5b::815 as permitted sender) client-ip=2a01:111:f400:fe5b::815;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=uRuAAqu1;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of jplopezz441@outlook.com designates 2a01:111:f400:fe5b::815 as permitted sender) smtp.mailfrom=jplopezz441@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none; b=bi1Rtm/i1tV4YPBi8jeznOw8xt54qazZ3ydTI3sb9r0KQo1ghlIzMcYFsDp0boxl+Gnw2+KDGUlMauaFZwuFfkHzMSvy8keZbl622W1IqUxmp0lBVPDHBs2cuIgKEYO9knGWGa3Q4qIbQ+Cgir/drXflpxDwPl6rEpmg8j8//dy+Yx/7/EKqP5GeRemxFPnpproEQj132B4jCXTJke8yl8rk1jwSP+k42FvxNrMW9u/NGiHgtg/5+D6PEoc55u0rgQHJB9Ni4EwNG+1m/IHqNUVHvquG+W4oBg7TG9CxeyMDwuSAX00W/W+rGKIGsfBNvu9PibfnVLNnOo1lgOwX/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1; bh=tFoPLuw9g+8sEvK+WEr9nqBUyI17Eaj2A2qACeEeAmE=; b=cWvjev51HMEt6H/WGjvOgpcBRdlV7yuatqGDee2+XdE2f2LdQeJWSNner5VjTMBEnITQaJryfsvAMjFVVbFS37e712du8htTwb7skJotsaeqtG2AL2qgdYdCOXLAWFLFIo3FedElIlg1pKH0KsYosiWFGK1oiVbh/8kxgVOX7N9yQB6TJ3MpBkZTFByijqEbmoFBRG3of/Hh0VOI087dtXWt3YdX06LB7ryP/iirv40P4rFvho/tiH1TN7vFdzcykTBTzN437DQbrphjwDoQ47XYnzosoEfqwizYKe+Uni+2HTVXcfLZRv14f510fiskbNF8J2PumtD3F3CAX5sAiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none; dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com; s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck; bh=tFoPLuw9g+8sEvK+WEr9nqBUyI17Eaj2A2qACeEeAmE=; b=uRuAAqu1ROlG9xXtp06XgoDtlAi/tJHfhShtHWcGvXPy/09+p9r2h58KnsBziVd7aQZ+2+PsZ1AirzV/nAhYjkbSbGkJFUXu/n7zyS/6FPZPFmSMfzWxrMrmlzXzINRt73vurUoASI3fzqpCMK9VV+SFoesAAvA0kz2ixz2+cts//036lmyKtwuSdJI/ouoAe4xkRcHf/OKfa3BbAH4wcBfo62MLKUb0tLPnOkZkeiHguMfVir69+YoHurrGg7C+C25TM03S9l9ltVuJInt1Ohamm4WuySsg9KqAi+KebZV2xSCzVqNiXNusRhVesqf/BwVGdSyv9oke3mrFbKlJEw==
+Received: from SJ0PR07MB7759.namprd07.prod.outlook.com (2603:10b6:a03:284::11) by DM5PR0701MB3653.namprd07.prod.outlook.com (2603:10b6:4:81::23) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5038.15; Tue, 8 Mar 2022 17:32:12 +0000
+Received: from SJ0PR07MB7759.namprd07.prod.outlook.com ([fe80::2c58:81f:8614:9bc9]) by SJ0PR07MB7759.namprd07.prod.outlook.com ([fe80::2c58:81f:8614:9bc9%6]) with mapi id 15.20.5038.027; Tue, 8 Mar 2022 17:32:12 +0000
+From: "JUAN PABLO LOPEZ ZUÑIGA" <jplopezz441@outlook.com>
+To: "jplopezz1512@gmail.com" <jplopezz1512@gmail.com>
+Subject: RV: Juan, you're now a member of Tren del Mame TIESO
+Thread-Topic: Juan, you're now a member of Tren del Mame TIESO
+Thread-Index: AQHYL6Pf3hWJsqpIeEqgeVETFscv5qy1xXb2
+Date: Tue, 8 Mar 2022 17:32:12 +0000
+Message-ID: <SJ0PR07MB775934E4871EB537640D115EE1099@SJ0PR07MB7759.namprd07.prod.outlook.com>
+References: <1ae2cc06-9b97-11ec-99a9-6b334624be86@facebookmail.com>
+In-Reply-To: <1ae2cc06-9b97-11ec-99a9-6b334624be86@facebookmail.com>
+Accept-Language: es-MX, en-US
+Content-Language: es-MX
+X-Hashtags: #Social
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+suggested_attachment_session_id: e84d0a4d-b0a2-6fe2-639a-fad739b876e4
+x-tmn: [HOZCX/bFq/KL3J9CcC/h9KLo/xQB3srUGkFnKS8rxtY=]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 17ce835e-1ca7-49c7-ba31-08da0129945e
+x-ms-traffictypediagnostic: DM5PR0701MB3653:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: aH8RfTeeMjLZGPfv2nwHkLKsHPLuUFCXnptmelqJeL3BD+OXv1SUkkY0+E7KqS3KBiI89085FII5vlJhhWEMkSxDsEDM2m312oqktKppCcCiM4Hfk1kYws1PAjohQPiw3wwmxxF5a0beCnQZFHcrgXZAK1Ye+JyKbRJf8anZprWjlKdFFvJ+GTKsxXd0g0DeLUmpS4m34kvlX4gjFv95gLgU8lT6xInuWXctuJfBZpT0s7SY51FTDgQoR5PEPy8vGi5e1Vc94+fBtiYNX6RIPbORQ0gI628xKND0gaQS2D5rFzCe3QI4vLI48/lu2OF+VDif7j+hveMn7Dznf1AB14VChsn4vjwnWW0nO2vEIzwPapiLtNhQxBhO7JMK10YbdyAUxl4iZmqI0oTSSwCydz3+ZVLeKKDAdzjX496huC8UlNRvnupY9MlGkfzjLRlGyj6Y10E1N7PJ1pL3eU9yawVuJfDYr37oyY/dzp/l8uXBEOOl3RzAf6M6mr9Yss+u2b/hlpSrO6smXVeqkbwrnEdg0oW3850+c/7ZsEjs8qlkKDsFhOVqCw18524u0i5DKDC+/q9Rht8Sg4aOg+gomRNpk/pDYGIxSbVdTRI5pYkW6m7DzQv5HBpiY+3IvgOiDg8XLlFsTLs+oD+AwwcP49rtj/3z3AyKvrBVXScWuz4=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: DkGqOyKzrlUJ1aaKcfsWXIE93wGPEgVCtLHsPQQvCgq7FARyXzF+j5910yzzSuph9wvUxoB+7YoL2LoJxJk3xvuaCgOJL0q9FHQrpn+I5zQ9/NuwnUvLdMxHvXM/sB4Wh+MEuhASHJUv2hPuzkRhyvnohFvMNFwnLbEAKfKf/kDSH86RQ/P+9YnRmXRBijsVAw+ozA21ZurvnqHITvvzMEot8wBtHe0c9hW41pRa08IWVAd30DPeHRsW3o8AikITpeIy0pEYZbfcs/4S/uuqqN7S5n8dBW2TqL7u/xvNBfwaHEAOP/2Wj5pZc3yeZ+pj5dOdzvXMgjUvUKQmemULiBru1mbmuER7ig9uQSsTmX2LWnG/ukWTt+uD3prPPd7IZobMPXitaRD2LN9iCKErvwYHlPPs4PWk4SnieSVaTGF1mYycfhAf3S4neUjRcpl5sQ67EUFVQUSRNCjVqJqDDyyalMxzBPiLqOpE4lP84qWXIIidEgjdlKw2s3GsblIfztJ0jevePp/4KLg9Hq8IhuoHdPWZGDKM/dmwNTuresy68EWi4JCiQ/ftcHzY9qjnCQZM+vFw+G3mIGIPhIa3lpDAbwPpzDzYIJZj5Yx+3cSRQcrq3tohD/KdlDKztkb7QU9ZrlgyME0K71wKfMrxlUVsO8xnwq1zj1QBuQL7FPKbqz8cD8eLYrRq5yG4iDb+Hj+fkW9FYOZPsZGPSmogdSvW9rQW+s2GVMl6cFlAS/kW182YOYZ9sXGcCjlTNtbn9rE64/gFge5rZtMr6/IH4oFaz7mMjRaxVP5q71voUwdFz42eei1V2FitRbV74MWOfUX0hpY0RHiBlEKbZ+uCAsMdKAggLfqEBFWD2+5puoSYQySxxuYndkdKCHGy2l3p3y//hpTX++FNRM+EweI0LYVsLNn8cPSYQG8tId0oKc9ifjrJXbRXHnuhQPVhKG5L76dM2sf5lvon65vWtKjIKA==
+Content-Type: multipart/alternative; boundary="_000_SJ0PR07MB775934E4871EB537640D115EE1099SJ0PR07MB7759namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR07MB7759.namprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17ce835e-1ca7-49c7-ba31-08da0129945e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Mar 2022 17:32:12.0398 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR0701MB3653
+
+--_000_SJ0PR07MB775934E4871EB537640D115EE1099SJ0PR07MB7759namp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+________________________________
+De: Facebook Groups <notification@facebookmail.com>
+Enviado: viernes, 4 de marzo de 2022 02:43 a. m.
+Para: Juan Pablo L=F3pez <jplopezz441@outlook.com>
+Asunto: Juan, you're now a member of Tren del Mame TIESO
+
+
+  Hi Juan, Your request to join Tren del Mame TIESO has been approved. Now =
+you can post and comment in this group.       Visit group     Thanks, The F=
+acebook Team
+
+
+[https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/nblMrq1jYuK.png]<https://www.=
+facebook.com/n/?groups%2F289025148119972%2F&aref=3D1646383382687758&medium=
+=3Demail&mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&bcode=3D2.164638=
+3383.AbxC6s4pOSz9nN7NlvU&n_m=3Djplopezz441%40outlook.com>         Facebook<=
+https://www.facebook.com/n/?groups%2F289025148119972%2F&aref=3D164638338268=
+7758&medium=3Demail&mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&bcode=
+=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&n_m=3Djplopezz441%40outlook.com>
+
+
+
+
+[https://scontent.xx.fbcdn.net/v/t31.18172-8/29063775_1651920228177838_3210=
+443962220958397_o.jpg?stp=3Dc19.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=3D100&c=
+cb=3D1-5&_nc_sid=3Dac9ee4&_nc_ohc=3D-vGqZNEbHXAAX-GCMdQ&_nc_ad=3Dz-m&_nc_ci=
+d=3D0&_nc_ht=3Dscontent.xx&oh=3D00_AT8UDIezx8aDawyj3rKFEtVZ-O45iKKOW9we14SG=
+JDuj9g&oe=3D624733CB]<https://www.facebook.com/n/?groups%2F289025148119972%=
+2F&aref=3D1646383382687758&medium=3Demail&mid=3D5d960371a6d3cG5af386988582G=
+5d96080b0700eG91&bcode=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&n_m=3Djplopezz441=
+%40outlook.com&rms=3Dv2&irms=3Dtrue>
+Hi Juan,
+Your request to join Tren del Mame TIESO has been approved. Now you can pos=
+t and comment in this group.
+
+
+
+<https://www.facebook.com/n/?groups%2F289025148119972%2F&aref=3D16463833826=
+87758&medium=3Demail&mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&bcod=
+e=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&n_m=3Djplopezz441%40outlook.com&rms=3D=
+v2&irms=3Dtrue>
+<https://www.facebook.com/n/?groups%2F289025148119972%2F&aref=3D16463833826=
+87758&medium=3Demail&mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&bcod=
+e=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&n_m=3Djplopezz441%40outlook.com&rms=3D=
+v2&irms=3Dtrue>
+Visit group
+
+
+Thanks,
+The Facebook Team
+
+
+
+Was this email:Useful<https://www.facebook.com/email_notification_feedback/=
+?is_useful=3D1&next_href=3Dhttps%3A%2F%2Fwww.facebook.com%2Fn%2F%3Fgroups%2=
+52F289025148119972%252F%26aref%3D1646383382687758%26medium%3Demail%26mid%3D=
+5d960371a6d3cG5af386988582G5d96080b0700eG91%26bcode%3D2.1646383383.AbxC6s4p=
+OSz9nN7NlvU%26n_m%3Djplopezz441%2540outlook.com&ndid=3D5d960371a6d3cG5af386=
+988582G5d96080b0700eG91> | Not Useful<https://www.facebook.com/email_notifi=
+cation_feedback/?is_useful=3D0&next_href=3Dhttps%3A%2F%2Fwww.facebook.com%2=
+Fn%2F%3Fhome.php%26aref%3D1646383382687758%26medium%3Demail%26mid%3D5d96037=
+1a6d3cG5af386988582G5d96080b0700eG91%26bcode%3D2.1646383383.AbxC6s4pOSz9nN7=
+NlvU%26n_m%3Djplopezz441%2540outlook.com%26lloc%3D2nd_cta%26rms%3Dv2%26irms=
+%3Dtrue&ndid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91>
+
+
+
+
+This message was sent to jplopezz441@outlook.com<mailto:jplopezz441@outlook=
+.com>. If you don't want to receive these emails from Meta in the future, p=
+lease unsubscribe<https://www.facebook.com/o.php?k=3DAS2wGV6fYkG9l3tnJJA&u=
+=3D100001981695362&mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&ee=3DA=
+Y0AePTzu8atKsyh-Qul4JD63VoVPw2oYM-OUKO1hcr9m7i0R9p6MIVgN9gyb6sWYsVFezpPAAxw=
+SRGzXPx6bUs>.
+Meta Platforms, Inc., Attention: Community Support, 1 Facebook Way, Menlo P=
+ark, CA 94025
+
+
+To help keep your account secure, please don't forward this email. Learn mo=
+re<https://www.facebook.com/email_forward_notice/?mid=3D5d960371a6d3cG5af38=
+6988582G5d96080b0700eG91>
+
+
+[https://www.facebook.com/email_open_log_pic.php?mid=3D5d960371a6d3cG5af386=
+988582G5d96080b0700eG91]
+
+--_000_SJ0PR07MB775934E4871EB537640D115EE1099SJ0PR07MB7759namp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>De:</b> Facebook Groups &lt;not=
+ification@facebookmail.com&gt;<br>
+<b>Enviado:</b> viernes, 4 de marzo de 2022 02:43 a. m.<br>
+<b>Para:</b> Juan Pablo L=F3pez &lt;jplopezz441@outlook.com&gt;<br>
+<b>Asunto:</b> Juan, you're now a member of Tren del Mame TIESO</font>
+<div>&nbsp;</div>
+</div>
+<style>
+<!--
+.x_d_mb_show
+=09{display:none}
+.x_d_mb_flex
+=09{display:flex}
+.x_mb_text h1, .x_mb_text h2, .x_mb_text h3, .x_mb_text h4, .x_mb_text h5, =
+.x_mb_text h6
+=09{line-height:normal}
+.x_mb_work_text h1
+=09{font-size:18px;
+=09line-height:normal;
+=09margin-top:4px}
+.x_mb_work_text h2, .x_mb_work_text h3
+=09{font-size:16px;
+=09line-height:normal;
+=09margin-top:4px}
+.x_mb_work_text h4, .x_mb_work_text h5, .x_mb_work_text h6
+=09{font-size:14px;
+=09line-height:normal}
+.x_mb_work_text a
+=09{color:#1270e9}
+.x_mb_work_text p
+=09{margin-top:4px}
+-->
+</style>
+<div dir=3D"ltr" style=3D"margin:0; padding:0; background-color:#ffffff">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" id=
+=3D"x_email_table" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td id=3D"x_email_content" style=3D"font-family:Helvetica Neue,Helvetica,Lu=
+cida Grande,tahoma,verdana,arial,sans-serif; background:#ffffff">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td height=3D"20" colspan=3D"3" style=3D"line-height:20px">&nbsp;</td>
+</tr>
+<tr>
+<td height=3D"1" colspan=3D"3" style=3D"line-height:1px"><span style=3D"col=
+or:#FFFFFF; font-size:1px; opacity:0">&nbsp; Hi Juan, Your request to join =
+Tren del Mame TIESO has been approved. Now you can post and comment in this=
+ group. &nbsp; &nbsp; &nbsp; Visit&nbsp;group &nbsp; &nbsp; Thanks, The Fac=
+ebook
+ Team &nbsp;</span></td>
+</tr>
+<tr>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td height=3D"15" colspan=3D"3" style=3D"line-height:15px">&nbsp;</td>
+</tr>
+<tr>
+<td width=3D"32" align=3D"left" valign=3D"middle" style=3D"height:32; line-=
+height:0px"><a href=3D"https://www.facebook.com/n/?groups%2F289025148119972=
+%2F&amp;aref=3D1646383382687758&amp;medium=3Demail&amp;mid=3D5d960371a6d3cG=
+5af386988582G5d96080b0700eG91&amp;bcode=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&=
+amp;n_m=3Djplopezz441%40outlook.com" style=3D"color:#3b5998; text-decoratio=
+n:none"><img width=3D"32" height=3D"32" style=3D"border:0" src=3D"https://s=
+tatic.xx.fbcdn.net/rsrc.php/v3/yP/r/nblMrq1jYuK.png"></a></td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td width=3D"100%" style=3D""><a href=3D"https://www.facebook.com/n/?groups=
+%2F289025148119972%2F&amp;aref=3D1646383382687758&amp;medium=3Demail&amp;mi=
+d=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&amp;bcode=3D2.1646383383.Ab=
+xC6s4pOSz9nN7NlvU&amp;n_m=3Djplopezz441%40outlook.com" style=3D"color:#3b59=
+98; text-decoration:none; font-family:Helvetica Neue,Helvetica,Lucida Grand=
+e,tahoma,verdana,arial,sans-serif; font-size:19px; line-height:32px">Facebo=
+ok</a></td>
+</tr>
+<tr style=3D"border-bottom:solid 1px #e5e5e5">
+<td height=3D"15" colspan=3D"3" style=3D"line-height:15px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+</tr>
+<tr>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td height=3D"28" style=3D"line-height:28px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"left" class=3D"x_ib_t" style=3D"border-collapse:collapse; min-width:42=
+0px">
+<tbody>
+<tr class=3D"x_ib_row">
+<td valign=3D"top" class=3D"x_ib_img" style=3D"padding-right:10px; font-siz=
+e:0px"><a href=3D"https://www.facebook.com/n/?groups%2F289025148119972%2F&a=
+mp;aref=3D1646383382687758&amp;medium=3Demail&amp;mid=3D5d960371a6d3cG5af38=
+6988582G5d96080b0700eG91&amp;bcode=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&amp;n=
+_m=3Djplopezz441%40outlook.com&amp;rms=3Dv2&amp;irms=3Dtrue" style=3D"color=
+:#3b5998; text-decoration:none"><img style=3D"border:0" src=3D"https://scon=
+tent.xx.fbcdn.net/v/t31.18172-8/29063775_1651920228177838_32104439622209583=
+97_o.jpg?stp=3Dc19.0.50.50a_cp0_dst-jpg_p50x50&amp;_nc_cat=3D100&amp;ccb=3D=
+1-5&amp;_nc_sid=3Dac9ee4&amp;_nc_ohc=3D-vGqZNEbHXAAX-GCMdQ&amp;_nc_ad=3Dz-m=
+&amp;_nc_cid=3D0&amp;_nc_ht=3Dscontent.xx&amp;oh=3D00_AT8UDIezx8aDawyj3rKFE=
+tVZ-O45iKKOW9we14SGJDuj9g&amp;oe=3D624733CB"></a></td>
+<td width=3D"100%" valign=3D"top" class=3D"x_ib_mid" style=3D"padding-right=
+:10px">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse; width:100%">
+<tbody>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif; padding-bottom:5px">
+<span class=3D"x_mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Luc=
+ida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; line-height:21p=
+x; color:#141823">Hi Juan,</span></td>
+</tr>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif; padding-top:5px">
+<span class=3D"x_mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Luc=
+ida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; line-height:21p=
+x; color:#141823">Your request to join Tren del Mame TIESO has been approve=
+d. Now you can post and comment in this
+ group.</span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"">
+<td height=3D"28" style=3D"line-height:28px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D""></td>
+</tr>
+<tr style=3D"">
+<td height=3D"8" style=3D"line-height:8px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D"">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse; width:100%">
+<tbody>
+<tr>
+<td style=3D"font-size:11px; font-family:LucidaGrande,tahoma,verdana,arial,=
+sans-serif">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"">
+<td height=3D"2" colspan=3D"3" style=3D"line-height:2px">&nbsp;</td>
+</tr>
+<tr>
+<td class=3D"x_mb_blk" style=3D""><a href=3D"https://www.facebook.com/n/?gr=
+oups%2F289025148119972%2F&amp;aref=3D1646383382687758&amp;medium=3Demail&am=
+p;mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&amp;bcode=3D2.164638338=
+3.AbxC6s4pOSz9nN7NlvU&amp;n_m=3Djplopezz441%40outlook.com&amp;rms=3Dv2&amp;=
+irms=3Dtrue" style=3D"color:#3b5998; text-decoration:none">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"border-collapse:collapse; border-radius:2px; text-align:center=
+; display:block; border:solid 1px #344c80; background:#4c649b; padding:7px =
+16px 11px 16px">
+<a href=3D"https://www.facebook.com/n/?groups%2F289025148119972%2F&amp;aref=
+=3D1646383382687758&amp;medium=3Demail&amp;mid=3D5d960371a6d3cG5af386988582=
+G5d96080b0700eG91&amp;bcode=3D2.1646383383.AbxC6s4pOSz9nN7NlvU&amp;n_m=3Djp=
+lopezz441%40outlook.com&amp;rms=3Dv2&amp;irms=3Dtrue" style=3D"color:#3b599=
+8; text-decoration:none; display:block">
+<center><font size=3D"3"><span style=3D"font-family:Helvetica Neue,Helvetic=
+a,Lucida Grande,tahoma,verdana,arial,sans-serif; white-space:nowrap; font-w=
+eight:bold; vertical-align:middle; color:#ffffff; font-size:14px; line-heig=
+ht:14px">Visit&nbsp;group</span></font></center>
+</a></td>
+</tr>
+</tbody>
+</table>
+</a></td>
+<td width=3D"100%" class=3D"x_mb_hide" style=3D""></td>
+</tr>
+<tr style=3D"">
+<td height=3D"32" colspan=3D"3" style=3D"line-height:32px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"">
+<td height=3D"28" style=3D"line-height:28px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D""><span class=3D"x_mb_text" style=3D"font-family:Helvetica Neu=
+e,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; =
+line-height:21px; color:#141823">Thanks,<br>
+The Facebook Team</span></td>
+</tr>
+<tr style=3D"">
+<td height=3D"28" style=3D"line-height:28px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+</tr>
+<tr>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"left" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"font-size:14px; color:#65676B"><span style=3D"padding-right:12=
+px; font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial=
+,sans-serif">Was this email:</span><span style=3D"color:#141823; font-size:=
+14px; font-weight:normal; line-height:24px; font-family:Helvetica Neue,Helv=
+etica,Lucida Grande,tahoma,verdana,arial,sans-serif"><a href=3D"https://www=
+.facebook.com/email_notification_feedback/?is_useful=3D1&amp;next_href=3Dht=
+tps%3A%2F%2Fwww.facebook.com%2Fn%2F%3Fgroups%252F289025148119972%252F%26are=
+f%3D1646383382687758%26medium%3Demail%26mid%3D5d960371a6d3cG5af386988582G5d=
+96080b0700eG91%26bcode%3D2.1646383383.AbxC6s4pOSz9nN7NlvU%26n_m%3Djplopezz4=
+41%2540outlook.com&amp;ndid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91" =
+style=3D"color:#3b5998; text-decoration:none">Useful</a></span><span style=
+=3D"padding:0 12px; color:#C9CCD1; font-family:Helvetica Neue,Helvetica,Luc=
+ida Grande,tahoma,verdana,arial,sans-serif">
+ | </span><span style=3D"color:#141823; font-size:14px; font-weight:normal;=
+ line-height:24px; font-family:Helvetica Neue,Helvetica,Lucida Grande,tahom=
+a,verdana,arial,sans-serif"><a href=3D"https://www.facebook.com/email_notif=
+ication_feedback/?is_useful=3D0&amp;next_href=3Dhttps%3A%2F%2Fwww.facebook.=
+com%2Fn%2F%3Fhome.php%26aref%3D1646383382687758%26medium%3Demail%26mid%3D5d=
+960371a6d3cG5af386988582G5d96080b0700eG91%26bcode%3D2.1646383383.AbxC6s4pOS=
+z9nN7NlvU%26n_m%3Djplopezz441%2540outlook.com%26lloc%3D2nd_cta%26rms%3Dv2%2=
+6irms%3Dtrue&amp;ndid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91" style=
+=3D"color:#3b5998; text-decoration:none">Not
+ Useful</a></span></td>
+</tr>
+<tr style=3D"">
+<td height=3D"15" style=3D"line-height:15px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+</tr>
+<tr>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"left" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"border-top:solid 1px #e5e5e5">
+<td height=3D"19" style=3D"line-height:19px">&nbsp;</td>
+</tr>
+<tr>
+<td style=3D"font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verd=
+ana,arial,sans-serif; font-size:11px; color:#aaaaaa; line-height:16px">
+This message was sent to <a href=3D"mailto:jplopezz441@outlook.com" style=
+=3D"color:#3b5998; text-decoration:none">
+jplopezz441@outlook.com</a>. If you don't want to receive these emails from=
+ Meta in the future, please
+<a href=3D"https://www.facebook.com/o.php?k=3DAS2wGV6fYkG9l3tnJJA&amp;u=3D1=
+00001981695362&amp;mid=3D5d960371a6d3cG5af386988582G5d96080b0700eG91&amp;ee=
+=3DAY0AePTzu8atKsyh-Qul4JD63VoVPw2oYM-OUKO1hcr9m7i0R9p6MIVgN9gyb6sWYsVFezpP=
+AAxwSRGzXPx6bUs" style=3D"color:#3b5998; text-decoration:none">
+unsubscribe</a>.<br>
+Meta Platforms, Inc., Attention: Community Support, 1 Facebook Way, Menlo P=
+ark, CA 94025</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+</tr>
+<tr>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+<td style=3D"">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verd=
+ana,arial,sans-serif; font-size:11px; color:#aaaaaa; line-height:16px">
+<span class=3D"x_mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Luc=
+ida Grande,tahoma,verdana,arial,sans-serif; font-size:16px; line-height:21p=
+x; color:#141823; font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma=
+,verdana,arial,sans-serif; font-size:11px; color:#aaaaaa; line-height:16px"=
+>To
+ help keep your account secure, please don't forward this email. <a href=3D=
+"https://www.facebook.com/email_forward_notice/?mid=3D5d960371a6d3cG5af3869=
+88582G5d96080b0700eG91" style=3D"color:#3b5998; text-decoration:none">
+Learn more</a></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"15" style=3D"display:block; width:15px">&nbsp;&nbsp;&nbsp;</td=
+>
+</tr>
+<tr style=3D"">
+<td height=3D"20" colspan=3D"3" style=3D"line-height:20px">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<span style=3D""><img style=3D"border:0; width:1px; height:1px" src=3D"http=
+s://www.facebook.com/email_open_log_pic.php?mid=3D5d960371a6d3cG5af38698858=
+2G5d96080b0700eG91"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
+
+--_000_SJ0PR07MB775934E4871EB537640D115EE1099SJ0PR07MB7759namp_--
