@@ -1,0 +1,5 @@
+http://zonareservada.iteso.mx/
+http://zonareservada.iteso.mx
+https://zonareservada.iteso.mx/apps/empleado/
+https://zonareservada.iteso.mx/favicon.ico
+https://www.zonareservada.iteso.mx/robots.txt
