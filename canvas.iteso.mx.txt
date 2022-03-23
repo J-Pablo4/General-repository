@@ -1,0 +1,10 @@
+https://canvas.iteso.mx/courses/15240/
+https://canvas.iteso.mx/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2
+https://canvas.iteso.mx/dist/fonts/lato/extended/Lato-Italic-4eb103b4d1.woff2
+https://canvas.iteso.mx/dist/fonts/lato/extended/Lato-Regular-bd03a2cc27.woff2
+https://canvas.iteso.mx/favicon.ico
+https://canvas.iteso.mx/feeds/courses/course_sKCZaX0o7XfpJqIuW4IyyaA6TTNQb99w3lGFJwnU.atom
+https://canvas.iteso.mx/images/icons/mc_icon_pub.svg
+https://canvas.iteso.mx/images/icons/mc_icon_unpub.svg
+https://canvas.iteso.mx/robots.txt
+https://canvas.iteso.mx/web-app-manifest/manifest.json
